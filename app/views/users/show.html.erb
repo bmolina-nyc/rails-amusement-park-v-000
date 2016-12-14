@@ -1,0 +1,8 @@
+<%= @user.name %>
+<h2>Mood<%= @user.mood %></h2>
+<%= @user.nausea %>
+<%= @user.tickets %>
+<%= @user.height %>
+
+
+<%= link_to "Logout", {:action => :destroy, :controller => :sessions}, :method => :post %>
