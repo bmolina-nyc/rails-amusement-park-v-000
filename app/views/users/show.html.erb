@@ -1,8 +1,35 @@
-<%= @user.name %>
-<h2>Mood<%= @user.mood %></h2>
-<%= @user.nausea %>
-<%= @user.tickets %>
-<%= @user.height %>
+<div>
+<%= @user.name%>
+</div>
 
+<div>
+Mood: <%= @user.mood %>
+</div>
 
-<%= link_to "Logout", {:action => :destroy, :controller => :sessions}, :method => :post %>
+<div>
+Happiness: <%= @user.happiness %>
+</div>
+
+<div>
+Nausea Level:<%= @user.nausea %>
+</div>
+
+<div>
+User Tickets: <%= @user.tickets %>
+</div>
+
+<div>
+User Height: <%= @user.height %>
+</div>
+
+<div>
+  <% if @user.admin %>
+  <h4>*ADMIN*</h4>
+  <% end %>
+</div>
+
+<div>
+<%= link_to "See attractions", attractions_path %>
+</div>
+
+<%= link_to "Log Out", {:action => :destroy, :controller => :sessions}, :method => :post %>

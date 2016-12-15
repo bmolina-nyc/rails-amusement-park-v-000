@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :must_log_in, only: [:show]
+  before_action :must_log_in, only: [:show, :update]
   before_action :current_user, only: [:new, :show, :update]
 
   def new
@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def create  
     @user = User.new(user_params)
+
     if @user.save 
       session[:user_id] = @user.id
       redirect_to user_path(@user)
@@ -16,14 +17,13 @@ class UsersController < ApplicationController
     end
   end
 
+
   def show 
     # @user = User.find_by(id: params[:id])
   end
 
 
-
-
   def user_params
-    params.require(:user).permit(:id, :name, :password, :happiness, :nausea, :tickets, :height)
+    params.require(:user).permit(:id, :name, :password, :happiness, :nausea, :tickets, :height, :admin)
   end
 end

@@ -6,7 +6,15 @@ class User < ActiveRecord::Base
 
 
 
+  # note you dont need to write "self" here if its just a method call
+  # for an object that has that particular method
   def mood 
-    self.happiness > self.nausea ? "happy"  : "sad"
+    if happiness.present? && nausea.present?
+      happiness > nausea ? "happy"  : "sad"
+    end
   end
+
+  # def valid_tickets(tickets)
+  #   tickets > 
+  # end
 end

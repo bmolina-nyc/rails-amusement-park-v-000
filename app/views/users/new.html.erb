@@ -1,7 +1,7 @@
 
 
 
-<%= form_for @user, url: '/users'  do |f| %>
+<%= form_for @user do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %><br />
 
@@ -20,6 +20,8 @@
   <%= f.label :height %>:
   <%= f.text_field :height %><br />
 
+  <%= f.label :check_if_admin %>:
+  <%= f.check_box :admin %><br />
 
   <%= f.submit 'Create User' %> 
 <% end %>

@@ -1,0 +1,9 @@
+<h1><%= @attraction.name%></h1>
+
+
+  <%= button_to "Go on this ride", user_attraction_path(@user, @attraction), :method => :patch %>
+
+<div>
+  <%= link_to "See attractions", attractions_path %>
+</div>
+
