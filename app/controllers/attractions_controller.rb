@@ -1,4 +1,5 @@
 class AttractionsController < ApplicationController
+  before_action :set_attraction, only: [:show, :edit, :update]
   def index
       @user = current_user
       @attractions = Attraction.all
@@ -22,15 +23,12 @@ class AttractionsController < ApplicationController
 
   def show
     @user = current_user
-    @attraction = Attraction.find_by(id: params[:id])
   end
 
   def edit
-    @attraction = Attraction.find_by(id: params[:id])
   end
 
   def update 
-    @attraction = Attraction.find_by(id: params[:id])
     @user = current_user
 
     if params[:user_id].nil? && current_user.admin?
@@ -55,8 +53,14 @@ class AttractionsController < ApplicationController
     end
   end
 
+  private 
+
   def attraction_params
     params.require(:attraction).permit(:name, :tickets, :nausea_rating, :happiness_rating, :min_height)
+  end
+
+  def set_attraction
+    @attraction = Attraction.find_by(id: params[:id])
   end
 
 end
