@@ -14,7 +14,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  # def valid_tickets(tickets)
-  #   tickets > 
-  # end
 end
